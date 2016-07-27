@@ -419,7 +419,9 @@
                     }
                 }
 
-                currentElement = VisualTreeHelper.GetParent(currentElement);
+                currentElement = VisualBridge.HasParentSet(currentElement)
+									? VisualBridge.GetParent(currentElement)
+									: VisualTreeHelper.GetParent(currentElement);
             }
 
             if (source != null && source.DataContext != null) {
